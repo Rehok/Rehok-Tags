@@ -1,0 +1,12 @@
+## Interface: 70200
+## Author: Fou
+## Version: 2.0.0
+## Title: |cFFA708D2Fou Tags|r
+## Notes: Custom tags for ElvUI - Previously called ElvUI_RehokTags.
+## RequiredDeps: ElvUI
+
+Fou Tags.lua
+ 
+ 
+## X-Tukui-ProjectID: 327
+## X-Tukui-ProjectFolders: ElvUI_RehokTags
