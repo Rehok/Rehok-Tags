@@ -1,11 +1,11 @@
 ## Interface: 70300
 ## Author: Rehok
 ## Version: 3.0.1
-## Title: |cFFFF00E0Rehok Tags|r
+## Title: rTags
 ## Notes: Custom tags for ElvUI
 ## RequiredDeps: ElvUI
 
-Rehok Tags.lua
+rTags.lua
  
  
 ## X-Tukui-ProjectID: 43
