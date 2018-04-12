@@ -148,7 +148,7 @@ end
 
 
 function rTag:Initialize()
-	print("|cFFFF00E0 Rehok Tags|r have Initialized. Thank you for using my addon :)")
+	print("|cFFFF00E0 rTags|r have Initialized. Thank you for using my addon :)")
 	rTag:NewTags()
 end
 
