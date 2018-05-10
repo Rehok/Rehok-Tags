@@ -1,8 +1,8 @@
-local E, L, V, P, G = unpack(ElvUI)
-local rTag = E:NewModule('rTags');
-local _G = _G
+local E, L, V, P, G = unpack(ElvUI) --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
+local rTag = E:NewModule('rTags'); -- Register a New Module with ElvUI
+local _G = _G -- Localize Global
 
-
+-- Create a function that we call which will create the tags
 function rTag:NewTags()
 
 -------------------------------
@@ -146,7 +146,7 @@ _G["ElvUF"].Tags.Methods['name:short-r'] = function(unit)
 	end
 end
 
-
+-- Initialize the module and create the tags + add Chat Text to let the user know its done
 function rTag:Initialize()
 	print("|cFFFF00E0 rTags|r have Initialized. Thank you for using my addon :)")
 	rTag:NewTags()
