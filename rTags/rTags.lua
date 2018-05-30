@@ -95,13 +95,6 @@ end
 
 
 
--- Displays current power and 0 when no power instead of hiding when at 0, Also formats it like HP tag
-_G["ElvUF"].Tags.Events['power:current-r'] = 'UNIT_DISPLAYPOWER UNIT_POWER UNIT_POWER_FREQUENT'
-_G["ElvUF"].Tags.Methods['power:current-r'] = function(unit)
-	local CurrentPower = UnitPower(unit)
-	return shortenNumber(CurrentPower)
-end
-
  -- Displays CurrenPower | Percent --(2.04B | 100)--
 _G["ElvUF"].Tags.Events['power:current:percent-r'] = 'UNIT_DISPLAYPOWER UNIT_POWER UNIT_POWER_FREQUENT'
 _G["ElvUF"].Tags.Methods['power:current:percent-r'] = function(unit)
