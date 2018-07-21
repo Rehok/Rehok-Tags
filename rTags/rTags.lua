@@ -1,5 +1,5 @@
 local E, L, V, P, G = unpack(ElvUI) --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
-local rTag = E:NewModule('rTags'); -- Register a New Module with ElvUI
+local rTag = E:NewModule("rTags"); -- Register a New Module with ElvUI
 local _G = _G -- Localize Global
 
 -- Create a function that we call which will create the tags
@@ -48,8 +48,8 @@ local shortenNumber = function(number)
 end
 
 -- Displays CurrentHP | Percent --(2.04B | 100)--
-_G["ElvUF"].Tags.Events['health:current-percent-r'] = 'UNIT_HEALTH_FREQUENT UNIT_MAXHEALTH UNIT_CONNECTION PLAYER_FLAGS_CHANGED'
-_G["ElvUF"].Tags.Methods['health:current-percent-r'] = function(unit)
+_G["ElvUF"].Tags.Events["health:current-percent-r"] = "UNIT_HEALTH_FREQUENT, UNIT_MAXHEALTH, UNIT_CONNECTION PLAYER_FLAGS_CHANGED"
+_G["ElvUF"].Tags.Methods["health:current-percent-r"] = function(unit)
 	local status = UnitIsDead(unit) and L["Dead"] or UnitIsGhost(unit) and L["Ghost"] or not UnitIsConnected(unit) and L["Offline"]
 		if (status) then
 			return status
@@ -65,8 +65,8 @@ _G["ElvUF"].Tags.Methods['health:current-percent-r'] = function(unit)
 end
 
 -- Displays current HP --(2.04B, 2.04M, 204k, 204)--
-_G["ElvUF"].Tags.Events['health:current-r'] = 'UNIT_HEALTH_FREQUENT UNIT_MAXHEALTH UNIT_CONNECTION PLAYER_FLAGS_CHANGED'
-_G["ElvUF"].Tags.Methods['health:current-r'] = function(unit)
+_G["ElvUF"].Tags.Events["health:current-r"] = "UNIT_HEALTH_FREQUENT, UNIT_MAXHEALTH, UNIT_CONNECTION PLAYER_FLAGS_CHANGED"
+_G["ElvUF"].Tags.Methods["health:current-r"] = function(unit)
 	local status = UnitIsDead(unit) and L["Dead"] or UnitIsGhost(unit) and L["Ghost"] or not UnitIsConnected(unit) and L["Offline"]
 		if (status) then
 		      	return status
@@ -78,8 +78,8 @@ end
 
 
 -- Displays Percent only --(intended for boss frames)--
-_G["ElvUF"].Tags.Events['health:percent-r'] = 'UNIT_HEALTH_FREQUENT UNIT_MAXHEALTH UNIT_CONNECTION PLAYER_FLAGS_CHANGED'
-_G["ElvUF"].Tags.Methods['health:percent-r'] = function(unit)
+_G["ElvUF"].Tags.Events["health:percent-r"] = "UNIT_HEALTH_FREQUENT, UNIT_MAXHEALTH, UNIT_CONNECTION PLAYER_FLAGS_CHANGED"
+_G["ElvUF"].Tags.Methods["health:percent-r"] = function(unit)
 	local status = UnitIsDead(unit) and L["Dead"] or UnitIsGhost(unit) and L["Ghost"] or not UnitIsConnected(unit) and L["Offline"]
 	if (status) then
 		return status
@@ -96,8 +96,8 @@ end
 
 
  -- Displays CurrenPower | Percent --(2.04B | 100)--
-_G["ElvUF"].Tags.Events['power:current:percent-r'] = 'UNIT_DISPLAYPOWER UNIT_POWER UNIT_POWER_FREQUENT'
-_G["ElvUF"].Tags.Methods['power:current:percent-r'] = function(unit)
+_G["ElvUF"].Tags.Events["power:current:percent-r"] = "UNIT_DISPLAYPOWER, UNIT_POWER_UPDATE, UNIT_POWER_FREQUENT"
+_G["ElvUF"].Tags.Methods["power:current:percent-r"] = function(unit)
 	local CurrentPower = UnitPower(unit)
 	local CurrentPercent = (UnitPower(unit)/UnitPowerMax(unit))*100
   local PowerMax = UnitPowerMax(unit)
@@ -109,10 +109,10 @@ _G["ElvUF"].Tags.Methods['power:current:percent-r'] = function(unit)
 end
 
 -- Displays current power --(2.04B, 2.04M, 204k, 204, 0)--
-_G["ElvUF"].Tags.Events['power:current-r'] = 'UNIT_DISPLAYPOWER UNIT_POWER UNIT_POWER_FREQUENT'
-_G["ElvUF"].Tags.Methods['power:current-r'] = function(unit)
+_G["ElvUF"].Tags.Events["power:current-r"] = "UNIT_DISPLAYPOWER, UNIT_POWER_UPDATE, UNIT_POWER_FREQUENT"
+_G["ElvUF"].Tags.Methods["power:current-r"] = function(unit)
 	local CurrentPower = UnitPower(unit)
-	if CurrentPower > 0 then -- Some mobs have -1 as power, Don't show if they have this
+	if CurrentPower > 0 then -- Some mobs have -1 as power, Don"t show if they have this
 		return shortenNumber(CurrentPower)
 	else
 		return ""
@@ -121,8 +121,8 @@ end
 
 
  -- Displays Power Percent
-_G["ElvUF"].Tags.Events['power:percent-r'] = 'UNIT_DISPLAYPOWER UNIT_POWER UNIT_POWER_FREQUENT'
-_G["ElvUF"].Tags.Methods['power:percent-r'] = function(unit)
+_G["ElvUF"].Tags.Events["power:percent-r"] = "UNIT_DISPLAYPOWER, UNIT_POWER_UPDATE, UNIT_POWER_FREQUENT"
+_G["ElvUF"].Tags.Methods["power:percent-r"] = function(unit)
 local CurrentPercent = (UnitPower(unit)/UnitPowerMax(unit))*100
 local PowerMax = UnitPowerMax(unit)
   if PowerMax > 0 then
@@ -132,9 +132,9 @@ end
 
 
  -- Displays long names better --(First Name Second Name Last Name = F.S Last Name)--
-_G["ElvUF"].Tags.Methods['name:short-r'] = function(unit)
+_G["ElvUF"].Tags.Methods["name:short-r"] = function(unit)
 	local name = UnitName(unit)
-		name = name:gsub('(%S+) ',function(t) return t:sub(1,1)..'.' end)
+		name = name:gsub("(%S+) ",function(t) return t:sub(1,1).."." end)
     	return name
 	end
 end
