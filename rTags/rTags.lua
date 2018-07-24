@@ -104,7 +104,7 @@ end
 
 
  -- Displays CurrenPower | Percent --(2.04B | 100)--
-_G["ElvUF"].Tags.Events['power:current-percent-r'] = "UNIT_DISPLAYPOWER UNIT_POWER UNIT_POWER_FREQUENT"
+_G["ElvUF"].Tags.Events['power:current-percent-r'] = "UNIT_DISPLAYPOWER UNIT_POWER_UPDATE UNIT_POWER_FREQUENT"
 _G["ElvUF"].Tags.Methods['power:current-percent-r'] = function(unit)
 	local CurrentPower = UnitPower(unit)
 	local CurrentPercent = (UnitPower(unit)/UnitPowerMax(unit))*100
@@ -117,7 +117,7 @@ _G["ElvUF"].Tags.Methods['power:current-percent-r'] = function(unit)
 end
 
 -- Displays current power --(2.04B, 2.04M, 204k, 204, 0)--
-_G["ElvUF"].Tags.Events['power:current-r'] = "UNIT_DISPLAYPOWER UNIT_POWER UNIT_POWER_FREQUENT"
+_G["ElvUF"].Tags.Events['power:current-r'] = "UNIT_DISPLAYPOWER UNIT_POWER_UPDATE UNIT_POWER_FREQUENT"
 _G["ElvUF"].Tags.Methods['power:current-r'] = function(unit)
 	local CurrentPower = UnitPower(unit)
 	if CurrentPower > 0 then -- Some mobs have -1 as power, Don"t show if they have this
@@ -129,7 +129,7 @@ end
 
 
  -- Displays Power Percent
-_G["ElvUF"].Tags.Events['power:percent-r'] = "UNIT_DISPLAYPOWER UNIT_POWER UNIT_POWER_FREQUENT"
+_G["ElvUF"].Tags.Events['power:percent-r'] = "UNIT_DISPLAYPOWER UNIT_POWER_UPDATE UNIT_POWER_FREQUENT"
 _G["ElvUF"].Tags.Methods['power:percent-r'] = function(unit)
 local CurrentPercent = (UnitPower(unit)/UnitPowerMax(unit))*100
 local PowerMax = UnitPowerMax(unit)

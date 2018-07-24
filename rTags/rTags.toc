@@ -1,7 +1,7 @@
-## Interface: 80000
+## Interface: 70300
 ## Author: Rehok
 ## Version: 3.0.1
-## Title: rTags
+## Title: |cff0088eerTags|r
 ## Notes: Custom tags for ElvUI
 ## RequiredDeps: ElvUI
 
