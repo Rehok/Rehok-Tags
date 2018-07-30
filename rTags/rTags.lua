@@ -31,7 +31,7 @@ local shortenNumber = function(number)
         "",
         "k",
         "m",
-        "B",
+        "b",
     }
 
     local affix = 1
