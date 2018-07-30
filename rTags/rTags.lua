@@ -120,7 +120,7 @@ end
 _G["ElvUF"].Tags.Events['power:current-r'] = "UNIT_DISPLAYPOWER UNIT_POWER_UPDATE UNIT_POWER_FREQUENT"
 _G["ElvUF"].Tags.Methods['power:current-r'] = function(unit)
 	local CurrentPower = UnitPower(unit)
-	if CurrentPower > 0 then -- Some mobs have -1 as power, Don"t show if they have this
+	if CurrentPower >= 0 then -- Some mobs have -1 as power, Don"t show if they have this
 		return shortenNumber(CurrentPower)
 	else
 		return ""
