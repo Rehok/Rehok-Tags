@@ -1,6 +1,6 @@
 ## Interface: 70300
 ## Author: Rehok
-## Version: 3.0.1
+## Version: 3.0.2
 ## Title: |cff0088eerTags|r
 ## Notes: Custom tags for ElvUI
 ## RequiredDeps: ElvUI
