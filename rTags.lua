@@ -99,7 +99,7 @@ _G["ElvUF"].Tags.Methods['health:current-r'] = function(unit)
 		if (status) then
 		      	return status
 		else
-	local CurrentHealth = UnitHealth(unit)
+		local CurrentHealth = UnitHealth(unit)
 		return shortenNumber(CurrentHealth, 2)
 	end
 end
@@ -113,9 +113,8 @@ _G["ElvUF"].Tags.Methods['health:percent-r'] = function(unit)
 		return status
 	else
 	local CurrentPercent = (UnitHealth(unit)/UnitHealthMax(unit))*100
-		if CurrentPercent <= 99.99 then
 			return Round(CurrentPercent)
-		end
+		
 	end
 end
 
@@ -171,6 +170,19 @@ _G["ElvUF"].Tags.Methods['name:veryshort-r'] = function(unit)
 	end
 end
 
+-- Displays Percent only (Requested by Ither)
+_G["ElvUF"].Tags.Events['health:percent-ither'] = "UNIT_HEALTH_FREQUENT UNIT_MAXHEALTH UNIT_CONNECTION PLAYER_FLAGS_CHANGED"
+_G["ElvUF"].Tags.Methods['health:percent-ither'] = function(unit)
+	local status = UnitIsDead(unit) and L["Dead"] or UnitIsGhost(unit) and L["Ghost"] or not UnitIsConnected(unit) and L["Offline"]
+	if (status) then
+		return status
+	else
+	local CurrentPercent = (UnitHealth(unit)/UnitHealthMax(unit))*100
+		if CurrentPercent <= 99.99 then
+			return Round(CurrentPercent)
+		end
+	end
+end
 
 function rTag:Initialize()
 	print("|cFFFF00E0 rTags|r have Initialized. Thank you for using my addon :)")
