@@ -12,6 +12,10 @@ rStringTable = {
 	"power:percent-r",
 	"name:short-r",
 }
+
+local exemptPowerType = {
+
+}
 function rTag:NewTags()
 
 -------------------------------
@@ -121,7 +125,7 @@ _G["ElvUF"].Tags.Events['power:current-percent-r'] = "UNIT_DISPLAYPOWER UNIT_POW
 _G["ElvUF"].Tags.Methods['power:current-percent-r'] = function(unit)
 	local CurrentPower = UnitPower(unit)
 	local CurrentPercent = (UnitPower(unit)/UnitPowerMax(unit))*100
-  local PowerMax = UnitPowerMax(unit)
+ 	local PowerMax = UnitPowerMax(unit)
 			if CurrentPercent > 1 and  PowerMax > 0 then
 		return shortenNumber(CurrentPower, 0) .. " | " .. Round(CurrentPercent)
 	else
@@ -129,23 +133,12 @@ _G["ElvUF"].Tags.Methods['power:current-percent-r'] = function(unit)
 	end
 end
 
--- Displays current power --(2b, 2m, 204k, 204, 0)--
+-- Displays current power --(2b, 2m, 204k, 204, `0)--
 _G["ElvUF"].Tags.Events['power:current-r'] = "UNIT_DISPLAYPOWER UNIT_POWER_UPDATE UNIT_POWER_FREQUENT"
 _G["ElvUF"].Tags.Methods['power:current-r'] = function(unit)
 	local CurrentPower = UnitPower(unit)
 	if CurrentPower > 0 then -- Some mobs have -1 as power, Don"t show if they have this
 		return shortenNumber(CurrentPower, 0)
-	else
-		return ""
-  end
-end
-
--- Displays current power --(2.04b, 2.04m, 204k, 204, 0)--
-_G["ElvUF"].Tags.Events['power:current-r'] = "UNIT_DISPLAYPOWER UNIT_POWER_UPDATE UNIT_POWER_FREQUENT"
-_G["ElvUF"].Tags.Methods['power:current-r'] = function(unit)
-	local CurrentPower = UnitPower(unit)
-	if CurrentPower > 0 then -- Some mobs have -1 as power, Don"t show if they have this
-		return shortenNumber(CurrentPower, 2)
 	else
 		return ""
   end
