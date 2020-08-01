@@ -1,12 +1,8 @@
-## Interface: 80000
-## Author: Rehok
+## Interface: 80300
+## Author: Rhk
 ## Version: 3.0.2
-## Title: |cff0088eerTags|r
+## Title: |cFF1b8ed1rTags|r
 ## Notes: Custom tags for ElvUI
 ## RequiredDeps: ElvUI
 
 rTags.lua
- 
- 
-## X-Tukui-ProjectID: 43
-## X-Tukui-ProjectFolders: Rehok Tags
