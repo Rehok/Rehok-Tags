@@ -2,19 +2,8 @@ local E, L, V, P, G = unpack(ElvUI)
 local rTag = E:NewModule("rTags");
 local _G = _G
 
--- For rememberence sake you can /dump rStringTable
-rStringTable = {
-	"health:current-percent-r",
-	"health:current-r",
-	"health:percent-r",
-	"power:current:percent-r",
-	"power:current-r",
-	"power:percent-r",
-	"name:short-r",
-}
-
+-- Here incase any weird powerTypes i find
 local exemptPowerType = {
-
 }
 function rTag:NewTags()
 
@@ -171,7 +160,7 @@ _G["ElvUF"].Tags.Methods['name:veryshort-r'] = function(unit)
 end
 
 -- Displays Percent only (Requested by Ither)
-_G["ElvUF"].Tags.Events['health:percent-ither'] = "UNIT_HEALTH_FREQUENT UNIT_MAXHEALTH UNIT_CONNECTION PLAYER_FLAGS_CHANGED"
+_G["ElvUF"].Tags.Events['name:veryshort-r'] = "UNIT_HEALTH_FREQUENT UNIT_MAXHEALTH UNIT_CONNECTION PLAYER_FLAGS_CHANGED"
 _G["ElvUF"].Tags.Methods['health:percent-ither'] = function(unit)
 	local status = UnitIsDead(unit) and L["Dead"] or UnitIsGhost(unit) and L["Ghost"] or not UnitIsConnected(unit) and L["Offline"]
 	if (status) then
@@ -184,9 +173,20 @@ _G["ElvUF"].Tags.Methods['health:percent-ither'] = function(unit)
 	end
 end
 
+-- Add to Available Tag area in ElvUI
+-- E:AddTagInfo("tag", "addonName", "Description")
+E:AddTagInfo("health:current-r", "|cFF1b8ed1RhkUI|r", "Formats health to be 2.04B, 2.04M, 204k, 204")
+E:AddTagInfo("health:percent-r", "|cFF1b8ed1RhkUI|r", "Formats health percent to not have a % e.g 89")
+E:AddTagInfo("health:current-percent-r", "|cFF1b8ed1RhkUI|r", "Formats health to be Current Health | Percent, If below 1% it shows 0.2")
+E:AddTagInfo("health:current-percent-rClean", "|cFF1b8ed1RhkUI|r", "Formats health to be Current Health - Percent")
+E:AddTagInfo("power:current-r", "|cFF1b8ed1RhkUI|r", "Formats power to be 2.04B, 2.04M, 204k, 204")
+E:AddTagInfo("power:percent-r", "|cFF1b8ed1RhkUI|r", "Formats power percent to not have a % e.g 89")
+E:AddTagInfo("power:current-percent-r", "|cFF1b8ed1RhkUI|r", "ormats power to be Current Health | Percent, If below 1% it shows 0.2")
+E:AddTagInfo("name:short-r", "|cFF1b8ed1RhkUI|r", "Formats name to be F.S Last Name e.g High Security Guard would be H.S.Guard")
+E:AddTagInfo("name:veryshort-r", "|cFF1b8ed1RhkUI|r", "Formats name to be F.S Last Name e.g High Security Guard would be H.S.Guard but limited to 10 chars")
+
 function rTag:Initialize()
-	print("|cFFFF00E0 rTags|r have Initialized. Thank you for using my addon :)")
+	print("|cFF1b8ed1rTags|r have Initialized. Thank you for using my addon :)")
 	rTag:NewTags()
 end
-
 E:RegisterModule(rTag:GetName())
